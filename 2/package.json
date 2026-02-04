@@ -1,0 +1,15 @@
+{
+  "name": "2",
+  "version": "2.0.1",
+  "description": "Auto deploy on render",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raunak",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  }
+}
