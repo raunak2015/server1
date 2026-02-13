@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 
+
+
 const data = [
     {
         "studentName": "ABDUL HAQUE",
