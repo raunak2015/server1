@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  },
+  "name": "4",
+  "version": "2.0.1",
+  "description": "post ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raunak",
+  "license": "ISC"
+}
