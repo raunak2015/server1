@@ -67,6 +67,82 @@ app.put("/users/:id", (req, res) => {
   });
 });
 
+app.delete("/users/:id", (req, res) => {
+  const userId = Number(req.params.id);
+  const index = users.findIndex(u => u.id === userId);
+
+  if (index === -1) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  users.splice(index, 1);
+
+  res.status(204).end();
+});
+app.delete("/users/name/:name", (req, res) => {
+  const userName = (req.params.name).toLowerCase();
+  const index = users.findIndex(u => u.name.toLocaleLowerCase() === userName);
+
+  if (index === -1) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  users.splice(index, 1);
+
+  res.status(204).end();
+});
+
+app.patch("/users/:id", (req, res) => {
+  const userId = Number(req.params.id);
+  const user = users.find(u => u.id === userId);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  if (req.body.name) user.name = req.body.name;
+  if (req.body.role) user.role = req.body.role;
+
+  res.status(200).json({
+    message: "User updated",
+    user
+  });
+});
+
+app.patch("/users/:id", (req, res) => {
+  const userId = Number(req.params.id);
+  const user = users.find(u => u.id === userId);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  if (req.body.name) user.name = req.body.name;
+  if (req.body.role) user.role = req.body.role;
+
+  res.status(200).json({
+    message: "User updated",
+    user
+  });
+});
+
+app.patch("/users/name/:name", (req, res) => {
+  const userId = (req.params.id).toLocaleLowerCase();
+  const user = users.find(u => u.name.toLocaleLowerCase() === userId);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  if (req.body.name) user.name = req.body.name;
+  if (req.body.role) user.role = req.body.role;
+
+  res.status(200).json({
+    message: "User updated",
+    user
+  });
+});
+
 
 
 app.listen(3000, () => {
