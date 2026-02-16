@@ -34,7 +34,8 @@ app.post("/users", (req, res) => {
   const newUser = {
     id: users.length + 1,
     name: req.body.name,
-    role: req.body.role
+    role: req.body.role,
+    age: req.body.age
   };
 
   users.push(newUser);
@@ -56,7 +57,8 @@ app.put("/users/:id", (req, res) => {
   users[index] = {
     id: userId,
     name: req.body.name,
-    role: req.body.role
+    role: req.body.role,
+  
   };
 
   res.status(200).json({
@@ -64,6 +66,8 @@ app.put("/users/:id", (req, res) => {
     user: users[index]
   });
 });
+
+
 
 app.listen(3000, () => {
   console.log("Server started on port 3000");
